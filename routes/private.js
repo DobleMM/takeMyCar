@@ -10,6 +10,10 @@ router.get("/profile", (req, res, next) => {
   res.render("private/profile", { "message": req.flash("error") });
 });
 
+router.get("/profilecars", (req, res, next) => {
+  res.render("private/profilecars", { "message": req.flash("error") });
+});
+
 router.post("/profilecars", (req, res, next) => {
   const owner = req.session.passport.user;
   const year = req.body.year;
@@ -32,17 +36,14 @@ router.post("/profilecars", (req, res, next) => {
 
     newCar.save()
     .then(() => {
-
-      res.redirect("/profilecars");
+      res.redirect("/private/profilecars");
     })
     .catch(err => {
       res.render("private/profile", { message: "Something went wrong" });
     })
   })
 
-  router.get("/profilecars", (req, res, next) => {
-    res.render("private/profilecars", { "message": req.flash("error") });
-  });
+  
 
 
 
