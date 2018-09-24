@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const carSchema = new Schema({
   
-  owner: { type: Schema.Types.ObjectId, ref: 'Car' },
+  owner: { type: Schema.Types.ObjectId, ref: 'User' },
   year: {type: Number, required: true},
   carMake: {type:String, required: true},
   model: {type:String, required: true},
@@ -14,7 +14,7 @@ const carSchema = new Schema({
 
 })
 
-reviewSchema.set('timestamps', true);
+carSchema.set('timestamps', true);
 
 const car = mongoose.model('car', carSchema);
 
