@@ -10,7 +10,9 @@ const carSchema = new Schema({
   model: {type:String, required: true},
   year: {type: Number, required: true},
   km: {type: Number, required: true},
-  available: {type: Boolean}
+  available: {type: Boolean},
+  latitude: {type: Number},
+  longitude: {type: Number},
 });
 
 carSchema.set('timestamps', true);

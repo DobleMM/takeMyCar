@@ -1,17 +1,20 @@
 <h2>COCHES</h2>
-
+<h3>Active</h3>
+<a href="/create-car" class="btn btn-primary">Add a new car</a>
 <div class="profileCars">
 {{#each cars}}
   <div class="card profileCar" style="width: 18rem;">
-    <img class="card-img-top" src="https://via.placeholder.com/100x100" alt="Card image cap">
+    <div class="card-img-top" style="height:100px" alt="Card image cap"></div>
     <div class="card-body">
       <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
       <p class="card-text">KM: {{ this.km }} </p>
       <a href="{{this._id}}/activate-car" class="btn btn-success">Activate</a>
-      <a href="#" class="btn btn-primary">Edit</a>
+      <a href="{{this._id}}/editcar" class="btn btn-primary">Edit</a>
       <a href="{{this._id}}/delete-car" class="btn btn-danger">Delete</a>
     </div>
   </div>
+
 {{/each}}
 </div>
+
 

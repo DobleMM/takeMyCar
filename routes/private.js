@@ -10,6 +10,37 @@ router.get("/profile", (req, res, next) => {
   res.render("private/profile", { "message": req.flash("error") });
 });
 
+router.get("/:id/editcar", (req, res, next) => {
+  id = req.params.id
+  Car.findById(id)
+  .then( car => {
+    console.log(car)
+    res.render("private/editcar", {car, id});
+  })
+});
+
+router.post("/:id/editcar", (req, res, next) => {
+  id = req.params.id
+  console.log(req.params.id)
+  const year = req.body.year;
+  const carMake = req.body.carMake;
+  const model = req.body.model;
+  const km = req.body.km;
+  const latitude = req.body.latitude;
+  const longitude = req.body.longitude;
+  let available;
+  (req.body.available == 'on') ? available = true : available = false;
+
+  Car.findByIdAndUpdate(id, {year, carMake, model, km, latitude, longitude})
+  .then(() => {
+    res.redirect("/private/profilecars")
+  })
+  .catch(err => {
+    res.render("private/profile", { message: "Something went wrong" });
+  })
+})
+
+
 router.get("/profilecars", (req, res, next) => {
   Car.find({})
   .then( cars => {
@@ -25,6 +56,8 @@ router.post("/profilecars", (req, res, next) => {
   const carMake = req.body.carMake;
   const model = req.body.model;
   const km = req.body.km;
+  const latitude = req.body.latitude;
+  const longitude = req.body.longitude;
   let available;
   (req.body.available == 'on') ? available = true : available = false;
 
@@ -34,7 +67,9 @@ router.post("/profilecars", (req, res, next) => {
     carMake,
     model,
     km,
-    available
+    available,
+    latitude,
+    longitude
   });
 
   newCar.save()

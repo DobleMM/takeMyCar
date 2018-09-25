@@ -1,0 +1,37 @@
+<a href="/private/profilecars">Add a new Car</a>
+
+<form method="post" action="/private/{{id}}/editcar">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="carMake">Brand</label>
+      <input type="text" class="form-control" name="carMake" value={{car.carMake}} required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="model">Model</label>
+      <input type="text" class="form-control" name="model" value={{car.model}} required>
+    </div>
+  </div>
+  <div class="form-group ">
+    <label for="year">Year</label>
+    <input type="Number" class="form-control" name="year" value={{car.year}} required>
+  </div>
+  <div class="form-group">
+    <label for="km">Km</label>
+    <input type="Number" class="form-control" name="km" value={{car.km}} required>
+  </div>
+  <div class="form-group">
+    <label for='location'>Select car location on  map:</label>
+    <input id="lat-pos" type="hidden" name="latitude" value={{car.latitude}} required>
+    <input id="lng-pos" type="hidden" name="longitude" value={{car.longitude}} required>
+    <div id="map" style="height:250px"></div>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" name="available">
+    <label class="form-check-label" for="available">Available for rent</label>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Edit Car</button>
+  
+</form>
+
+<script src="/javascripts/addMap.js"></script>
