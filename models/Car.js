@@ -9,9 +9,8 @@ const carSchema = new Schema({
   carMake: {type:String, required: true},
   model: {type:String, required: true},
   year: {type: Number, required: true},
-  startDate: {type: Date, required: true},
-  endDate: {type: Date, required: true}
-
+  km: {type: Number, required: true},
+  available: {type: Boolean}
 });
 
 carSchema.set('timestamps', true);
