@@ -1,9 +1,34 @@
 const express = require('express');
 const router  = express.Router();
+const Car = require("../models/Car");
+const {ensureLoggedIn, ensureLoggedOut} = require('connect-ensure-login')
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('index', {user:req.user});
 });
+
+router.get("/carlist", (req, res, next) => {
+  Car.find({})
+  .then( cars => {
+  res.render("carlist", {cars})
+})
+});
+
+router.get("/:_id", (req, res, next) => {
+  Car.findById(req.params)
+  .then( car=> {
+  res.render("car", car)
+});
+})
+
+router.post("/:_id", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  Car.findByIdAndUpdate(req.params)
+  .then( car=> {
+  res.redirect("/private/profile", car)
+});
+})
+
+
 
 module.exports = router;
