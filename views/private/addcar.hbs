@@ -6,7 +6,7 @@
 
 {{!-- esto se va a addcars --}}
 <br>
-<form method="post" action="/private/ownerlist">
+<form method="post" action="/private/ownerlist" enctype="multipart/form-data">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="carMake">Brand</label>
@@ -25,6 +25,10 @@
     <label for="km">Km</label>
     <input type="Number" class="form-control" name="km" placeholder="3000">
   </div>
+    <h2>Foto del coche</h2>
+
+  <label>Foto del coche</label>
+  <input type="file" name="photo">
   <div class="form-group">
     <label for='location'>Select car location on  map:</label>
     <input id="lat-pos" type="hidden" name="latitude" placeholder="Latitude" required>
@@ -36,7 +40,7 @@
     <label class="form-check-label" for="available">Available for rent</label>
   </div>
   
-  <button type="submit" class="btn btn-primary">Add Car</button>
+  <button type="submit" class="btn btn-primary" value="SAVE">Add Car</button>
   
 </form>
 

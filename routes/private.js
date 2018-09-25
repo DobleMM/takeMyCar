@@ -4,7 +4,8 @@ const router = express.Router();
 const User = require("../models/User");
 const Car = require("../models/Car");
 const flash = require('connect-flash')
-const {ensureLoggedIn, ensureLoggedOut} = require('connect-ensure-login')
+const {ensureLoggedIn, ensureLoggedOut} = require('connect-ensure-login');
+const uploadCloud = require('../config/cloudinary.js');
 
 
 router.get("/profile", ensureLoggedIn("/auth/login"), (req, res, next) => {
@@ -53,13 +54,14 @@ router.get("/ownerlist", ensureLoggedIn(), (req, res, next) => {
   })
 })
 
-router.post("/ownerlist", ensureLoggedIn(), (req, res, next) => {
-  console.log(req.body)
+router.post("/ownerlist", ensureLoggedIn(),  uploadCloud.single('photo'), (req, res, next) => {
+  console.log(req.file)
   const owner = req.session.passport.user;
   const year = req.body.year;
   const carMake = req.body.carMake;
   const model = req.body.model;
   const km = req.body.km;
+  const imgPath = req.file.url;
   const latitude = req.body.latitude;
   const longitude = req.body.longitude;
   let available;
@@ -72,6 +74,7 @@ router.post("/ownerlist", ensureLoggedIn(), (req, res, next) => {
     model,
     km,
     available,
+    imgPath, 
     latitude,
     longitude
   });
@@ -95,6 +98,15 @@ router.get("/:id/delete-car", (req, res, next) => {
     res.render("private/profile", { message: "Something went wrong" });
   })
 })
+
+router.get("/:_id/reserve", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  Car.findByIdAndUpdate(req.params._id, {available: false})
+  .then( car => {
+    console.log("hola")
+  res.redirect("/private/profile", car)
+  });
+})
+
 
 router.get("/:id/deactivate", (req, res, next) => {
 

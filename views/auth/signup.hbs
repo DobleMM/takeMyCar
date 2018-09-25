@@ -14,6 +14,14 @@
 
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
+  <h2>Foto de perfil</h2>
+<form action="/profile/add" method="post" enctype="multipart/form-data">
+
+  <label>Foto de Perfil</label>
+  <input type="file" name="photo">
+
+  <input type="submit" value="SAVE">
+</form>
   <br>
   {{#if message }}
     <div class="error-message">{{ message }}</div>

@@ -5,10 +5,9 @@
     <img class="card-img-top" src="https://via.placeholder.com/100x100" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
+       <img src="{{this.imgPath}}" alt="">
       <p class="card-text">KM: {{ this.km }} </p>
-      <form action="/{{this._id}}" method="POST" >
-      <a href="/{{this._id}}" class="btn btn-success">Reserva</a>
-      </form>
+      <a href="/private/{{this._id}}/reserve" class="btn btn-success">Reserva</a>
     </div>
   </div>
 </div>

@@ -11,6 +11,7 @@
   <div class="card profileCar" style="width: 18rem;">
     <div class="card-img-top" style="height:100px" alt="Card image cap"></div>
     <div class="card-body">
+       <img src={{this.imgPath}} alt="car">
       <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
       <p class="card-text">KM: {{ this.km }} </p>
       <a href="{{this._id}}/activate-car" class="btn btn-danger">Deactivate</a>
@@ -28,6 +29,7 @@
 {{#each cars}}
 {{#compare this.available true operator="!="}}
   <div class="card profileCar" style="width: 18rem;">
+    <img src={{this.imgPath}} alt="car">
       <div class="card-img-top" style="height:100px" alt="Card image cap"></div>
       <div class="card-body">
         <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
