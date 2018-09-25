@@ -8,7 +8,7 @@ const {ensureLoggedIn, ensureLoggedOut} = require('connect-ensure-login')
 
 
 router.get("/profile", ensureLoggedIn("/auth/login"), (req, res, next) => {
-    res.render("private/profile", { "message": req.flash("error")}) 
+    res.render("private/profile", { "message": req.flash("error"), user:req.user}) 
 });
 
 router.get("/:id/editcar", (req, res, next) => {
@@ -34,7 +34,7 @@ router.post("/:id/editcar", (req, res, next) => {
 
   Car.findByIdAndUpdate(id, {year, carMake, model, km, latitude, longitude, available})
   .then(() => {
-    res.redirect("/private/profilecars")
+    res.redirect("/private/ownerlist")
   })
   .catch(err => {
     res.render("private/profile", { message: "Something went wrong" });
@@ -45,14 +45,15 @@ router.get("/addcar", ensureLoggedIn("/auth/login"), (req, res, next) => {
   res.render("private/addcar", { "message": req.flash("error")}) 
 });
 
-router.get("/profilecars", ensureLoggedIn(), (req, res, next) => {
-  Car.find({})
+router.get("/ownerlist", ensureLoggedIn(), (req, res, next) => {
+  id = req.session.passport.user
+  Car.find({owner:id})
   .then( cars => {
-    res.render("private/profilecars", {cars});
+    res.render("private/ownerlist", {cars});
   })
 })
 
-router.post("/profilecars", ensureLoggedIn(), (req, res, next) => {
+router.post("/ownerlist", ensureLoggedIn(), (req, res, next) => {
   console.log(req.body)
   const owner = req.session.passport.user;
   const year = req.body.year;
@@ -77,7 +78,7 @@ router.post("/profilecars", ensureLoggedIn(), (req, res, next) => {
 
   newCar.save()
   .then(() => {
-    res.redirect("/private/profilecars");
+    res.redirect("/private/ownerlist");
   })
   .catch(err => {
     res.render("private/profile", { message: "Something went wrong" });
@@ -88,7 +89,7 @@ router.get("/:id/delete-car", (req, res, next) => {
   id = req.params.id
   Car.findOneAndRemove({'_id': id})
   .then( () => {
-      res.redirect("/private/profilecars");
+      res.redirect("/private/ownerlist");
   })
   .catch(err => {
     res.render("private/profile", { message: "Something went wrong" });
