@@ -31,7 +31,7 @@ router.post("/:id/editcar", (req, res, next) => {
   let available;
   (req.body.available == 'on') ? available = true : available = false;
 
-  Car.findByIdAndUpdate(id, {year, carMake, model, km, latitude, longitude})
+  Car.findByIdAndUpdate(id, {year, carMake, model, km, latitude, longitude, available})
   .then(() => {
     res.redirect("/private/profilecars")
   })
