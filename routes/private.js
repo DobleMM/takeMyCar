@@ -3,11 +3,12 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
 const Car = require("../models/Car");
-const session    = require("express-session");
+const flash = require('connect-flash')
+const {ensureLoggedIn, ensureLoggedOut} = require('connect-ensure-login')
 
 
-router.get("/profile", (req, res, next) => {
-  res.render("private/profile", { "message": req.flash("error") });
+router.get("/profile", ensureLoggedIn("/auth/login"), (req, res, next) => {
+    res.render("private/profile", { "message": req.flash("error")}) 
 });
 
 router.get("/:id/editcar", (req, res, next) => {
@@ -40,16 +41,18 @@ router.post("/:id/editcar", (req, res, next) => {
   })
 })
 
+router.get("/addcar", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  res.render("private/addcar", { "message": req.flash("error")}) 
+});
 
-router.get("/profilecars", (req, res, next) => {
+router.get("/profilecars", ensureLoggedIn(), (req, res, next) => {
   Car.find({})
   .then( cars => {
     res.render("private/profilecars", {cars});
   })
-  
-});
+})
 
-router.post("/profilecars", (req, res, next) => {
+router.post("/profilecars", ensureLoggedIn(), (req, res, next) => {
   console.log(req.body)
   const owner = req.session.passport.user;
   const year = req.body.year;
