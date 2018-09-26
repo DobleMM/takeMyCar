@@ -20,5 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     getCoordinates(getAddressText(), function(coordinates) { window.location.href += `carlist/coords?lat=${coordinates[0]}&lng=${coordinates[1]}`}) ;
   });
 
+  google.maps.event.addDomListener(window, 'load', function () {
+    var end_address = new google.maps.places.Autocomplete(document.getElementById('end_address'));
+  });
+
+
 }, false);
 
