@@ -22,12 +22,7 @@ router.get("/:_id", (req, res, next) => {
 });
 })
 
-router.post("/:_id", ensureLoggedIn("/auth/login"), (req, res, next) => {
-  Car.findByIdAndUpdate(req.params)
-  .then( car=> {
-  res.redirect("/private/profile", car)
-});
-})
+
 
 
 
