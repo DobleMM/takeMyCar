@@ -13,8 +13,8 @@ const carSchema = new Schema({
   available: {type: Boolean},
   latitude: {type: Number},
   longitude: {type: Number},
-  imgName: String,
   imgPath: String,
+  cost: Number,
 });
 
 carSchema.set('timestamps', true);
