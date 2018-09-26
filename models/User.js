@@ -10,7 +10,6 @@ const userSchema = new Schema({
   password: {type: String, required: true},
   isOwner: { type: Boolean, default: false },
   isDriver: { type: Boolean, default: true },
-  imgName: String,
   imgPath: String,
   licensePhoto: {
     licensePath: String,

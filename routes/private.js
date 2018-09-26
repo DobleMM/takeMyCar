@@ -3,13 +3,22 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../models/User");
 const Car = require("../models/Car");
+const Ride = require("../models/Ride");
 const flash = require('connect-flash')
 const {ensureLoggedIn, ensureLoggedOut} = require('connect-ensure-login');
 const uploadCloud = require('../config/cloudinary.js');
 
 
 router.get("/profile", ensureLoggedIn("/auth/login"), (req, res, next) => {
-    res.render("private/profile", { "message": req.flash("error"), user:req.user}) 
+
+  id = req.session.passport.user
+  User.findById(id)
+  .then (user => {
+    res.render("private/profile", user)   
+  })
+  .catch(err => {
+   console.log(err);
+  })
 });
 
 router.get("/:id/editcar", (req, res, next) => {
@@ -80,6 +89,10 @@ router.post("/ownerlist", ensureLoggedIn(),  uploadCloud.single('photo'), (req, 
   });
 
   newCar.save()
+  .then(()=>{
+    id = req.session.passport.user
+    User.findByIdAndUpdate(id, {isOwner:true})
+  })
   .then(() => {
     res.redirect("/private/ownerlist");
   })
@@ -102,10 +115,21 @@ router.get("/:id/delete-car", (req, res, next) => {
 router.get("/:_id/reserve", ensureLoggedIn("/auth/login"), (req, res, next) => {
   Car.findByIdAndUpdate(req.params._id, {available: false})
   .then( car => {
-    console.log("hola")
   res.redirect("/private/profile", car)
   });
 })
+
+router.get("/rides", (req, res, next) => {
+  User.findById(req.user.id)
+  .then((user)=> {
+  Ride.populate('driver', user)
+  })
+  .then( () => {
+    console.log(req.Ride)
+    res.redirect("/private/profile");
+});
+})
+
 
 
 router.get("/:id/deactivate", (req, res, next) => {
