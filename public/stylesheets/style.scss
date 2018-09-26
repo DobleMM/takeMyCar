@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -15,4 +15,28 @@ a {
     margin-left: 10px;  
     width: 30%;
   }
+}
+
+.page-content {
+  padding: 50px;
+}
+
+.index-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title{
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+    .search-bar {
+      width: 80%;
+      margin: 200px;
+    }
+    .view-cars {
+      margin-top: 200px;
+    }
 }

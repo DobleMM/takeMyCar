@@ -1,4 +1,15 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<section class="index-content">
+  <div class="title">
+    <h1>{{title}}</h1>
+    <p>welcome</p>
+  </div>
 
- <button type="button" class="btn btn-info"><a href="/carlist">Ver Coches</a></button>
+  <div class="input-group mb-3 search-bar">
+    <input id="end_address" type="text" class="form-control" placeholder="Address" aria-label="Address"
+      aria-describedby="basic-addon2" value="">
+    <div class="input-group-append">
+      <button class="input-group-text" id="basic-addon2"><span>where to?</span></button>
+    </div>
+  </div>
+  <button type="button" class="view-cars btn btn-info"><a href="/carlist">View cars</a></button>
+</section>

@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
@@ -12,5 +12,23 @@ a {
   .profileCars .profileCar {
     margin-left: 10px;
     width: 30%; }
+
+.page-content {
+  padding: 50px; }
+
+.index-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .index-content .title {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .index-content .search-bar {
+    width: 80%;
+    margin: 200px; }
+  .index-content .view-cars {
+    margin-top: 200px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,24 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+  const geocoder = new google.maps.Geocoder();
+
+  getCoordinates = (( address, callback ) => {
+    var coordinates;
+    geocoder.geocode({ address: address }, function (results, status){
+      lng = results[0].geometry.viewport.b.b;
+      lat = results[0].geometry.viewport.f.b;
+      coordinates = [lat, lng]
+      callback(coordinates)
+    })
+  });
+
+  getAddressText = (() => {
+    return document.getElementById("end_address").value;
+  });
+
+  $('#basic-addon2').click(function() {
+    getCoordinates(getAddressText(), function(coordinates) {load(`/lat=${coordinates[0]}&lng=${coordinates[1]}/carlist`)}) ;
+  });
+
+}, false);
+
