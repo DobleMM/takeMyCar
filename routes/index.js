@@ -8,10 +8,12 @@ router.get('/', (req, res, next) => {
   res.render('index', {user:req.user});
 });
 
-router.get("/carlist", (req, res, next) => {
+router.get("/carlist/coords", (req, res, next) => {
   Car.find({})
   .then( cars => {
-  res.render("carlist", {cars})
+  res.render("carlist", 
+  {cars,
+  carStr: JSON.stringify(cars)})
 })
 });
 

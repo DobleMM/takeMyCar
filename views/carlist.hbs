@@ -1,4 +1,4 @@
-<h2>TODOS LOS COCHES</h2>
+<h2>Cars Available</h2>
 
 <div class="listcards">
 {{#each cars}}
@@ -6,9 +6,14 @@
     <img class="card-img-top" src={{this.imgPath}} alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
-      <p class="card-text">KM: {{ this.km }} </p>
-      <a href="/{{this._id}}" class="btn btn-success">Check</a>
+      <p class="card-text">Travel Distance: {{ this.km }}</p>
+      <p class="km-{{this.id}}"></p>
+      <a href="/{{this._id}}" class="btn btn-success">Check</a>    
+      <p class="latlng" hidden>lat: {{this.latitude}}, lng: {{this.longitude}}|</p>
     </div>
   </div>
 {{/each}}
 </div>
+
+<script src="/javascripts/preuba.js"></script>
+<script> window.cars = {{{ carStr }}} </script>

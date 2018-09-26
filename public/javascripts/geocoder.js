@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   $('#basic-addon2').click(function() {
-    getCoordinates(getAddressText(), function(coordinates) {load(`/lat=${coordinates[0]}&lng=${coordinates[1]}/carlist`)}) ;
+    getCoordinates(getAddressText(), function(coordinates) { window.location.href += `carlist/coords?lat=${coordinates[0]}&lng=${coordinates[1]}`}) ;
   });
 
 }, false);
