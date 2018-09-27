@@ -14,7 +14,6 @@ a {
     padding-right: 15px; }
 
 .footer-copyright {
-  position: fixed;
   width: 100%;
   background-color: black;
   color: whitesmoke;
@@ -24,15 +23,20 @@ a {
   width: 100%;
   display: flex;
   flex-wrap: wrap; }
+  .profileCars h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 15px; }
   .profileCars .profileCar {
     display: flex;
     flex-direction: row;
-    margin-left: 10px;
+    margin-left: 100px;
     width: 80%;
+    margin-bottom: 25px;
     justify-content: space-between; }
     .profileCars .profileCar .car {
       display: flex;
-      flex-direction: row; }
+      flex-direction: row;
+      margin-bottom: 25px; }
     .profileCars .profileCar .gmap {
       margin: 10px;
       width: 250px;
