@@ -11,27 +11,26 @@ const uploadCloud = require('../config/cloudinary.js');
 
 
 router.get("/profile", ensureLoggedIn("/auth/login"), (req, res, next) => {
-
-  id = req.session.passport.user
+  id = req.user.id
   User.findById(id)
-  .then (user => {
-    res.render("private/profile", user)   
+  .then (prof => {
+    res.render("private/profile", {prof,user:req.user})   
   })
   .catch(err => {
    console.log(err);
   })
 });
 
-router.get("/:id/editcar", (req, res, next) => {
+router.get("/:id/editcar", ensureLoggedIn("/auth/login"), (req, res, next) => {
   id = req.params.id
   Car.findById(id)
   .then( car => {
     console.log(car)
-    res.render("private/editcar", {car, id});
+    res.render("private/editcar", {car, id, user:req.user});
   })
 });
 
-router.post("/:id/editcar", (req, res, next) => {
+router.post("/:id/editcar", ensureLoggedIn("/auth/login"),  (req, res, next) => {
   id = req.params.id
   console.log(req.params.id)
   const year = req.body.year;
@@ -49,19 +48,19 @@ router.post("/:id/editcar", (req, res, next) => {
     res.redirect("/private/ownerlist")
   })
   .catch(err => {
-    res.render("private/profile", { message: "Something went wrong" });
+    res.render("private/profile", { message: "Something went wrong", user:req.user });
   })
 })
 
 router.get("/addcar", ensureLoggedIn("/auth/login"), (req, res, next) => {
-  res.render("private/addcar", { "message": req.flash("error")}) 
+  res.render("private/addcar", { "message": req.flash("error"), user:req.user}) 
 });
 
-router.get("/ownerlist", ensureLoggedIn(), (req, res, next) => {
+router.get("/ownerlist", ensureLoggedIn("/auth/login"), (req, res, next) => {
   id = req.session.passport.user
   Car.find({owner:id})
   .then( cars => {
-    res.render("private/ownerlist", {cars});
+    res.render("private/ownerlist", {cars, user:req.user});
   })
 })
 
@@ -100,7 +99,7 @@ router.post("/ownerlist", ensureLoggedIn(),  uploadCloud.single('photo'), (req, 
     res.redirect("/private/ownerlist");
   })
   .catch(err => {
-    res.render("private/profile", { message: "Something went wrong" });
+    res.rendirect("private/profile");
   })
 })
 
@@ -124,8 +123,9 @@ router.get("/carlist/coords", ensureLoggedIn("/auth/login"), (req, res, next) =>
 
 
 
+
 router.post("/reserve/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
-  console.log('entra')
+  console.log(req.body)
   ride = {
   km: req.body.km,
   cost: req.body.cost,
@@ -134,11 +134,15 @@ router.post("/reserve/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
   }
 
  Ride.create(ride).then( (ride) =>{
-   res.send(ride)
-
-
+  res.redirect("/private/profile")
  })
 })
+
+router.get("/rides", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  res.render("private/rides") 
+});
+
+
 
 
 

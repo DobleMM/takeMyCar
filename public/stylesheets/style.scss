@@ -7,6 +7,23 @@ a {
   color: #00B7FF;
 }
 
+.navbar {
+  background-color: mediumaquamarine;
+  
+a {
+  color: antiquewhite;
+  padding-right: 15px;
+}
+}
+
+.footer-copyright{
+  position: fixed;
+  width: 100%;
+  background-color: black;
+  color: whitesmoke;
+  bottom: 0;
+}
+
 .profileCars {
   width: 100%;
   display: flex;
@@ -71,6 +88,8 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url("https://avatars.mds.yandex.net/get-pdb/236760/23cc6b20-88ec-4407-8525-ecaab35989b7/orig");
+    display: cover;
     .title{
       padding: 20px;
       display: flex;

@@ -15,7 +15,7 @@ document.getElementById('reserve').onclick = function(){
   let url = 'http://' + window.location.host + `/private/reserve/${id}`
   axios.post(url, 
     newRide
-  ).then(() => console.log('car send'))
+  ).then(() => window.location.href = 'http://' + window.location.host + `/private/profile` )
     
 }
 }, false)

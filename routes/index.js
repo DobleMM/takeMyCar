@@ -18,21 +18,16 @@ router.get("/carlist/coords", (req, res, next) => {
     {cars,
      carStr: JSON.stringify(cars),
      lat, 
-     lng})
+     lng,
+     user:req.user})
   })
 });
 
-router.get("/carlist", (req, res, next) => {
-    Car.find({})
-    .then( cars => {
-    res.render("carlist", {cars})
-  })
-});
 
 router.get("/:_id/coords", ensureLoggedIn("/auth/login"), (req, res, next) => {
   Car.findById(req.params)
   .then( car=> {
-  res.render("car", {car, carStr: JSON.stringify(car)})
+  res.render("car", {car, carStr: JSON.stringify(car), user:req.user})
 });
 })
 
