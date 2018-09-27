@@ -1,17 +1,54 @@
 body {
   padding: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
 
 .profileCars {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap; }
   .profileCars .profileCar {
+    display: flex;
+    flex-direction: row;
     margin-left: 10px;
-    width: 30%; }
+    width: 80%;
+    justify-content: space-between; }
+    .profileCars .profileCar .car {
+      display: flex;
+      flex-direction: row; }
+    .profileCars .profileCar .gmap {
+      margin: 10px;
+      width: 250px;
+      height: 250px; }
+    .profileCars .profileCar img {
+      margin: 10px;
+      width: 250px;
+      height: 250px; }
+
+.reserveCars {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; }
+  .reserveCars .reserveCar {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    width: 80%;
+    justify-content: space-between; }
+    .reserveCars .reserveCar .car {
+      display: flex;
+      flex-direction: row;
+      height: 500px; }
+    .reserveCars .reserveCar #map {
+      margin: 10px;
+      width: 500px;
+      height: 500px; }
+    .reserveCars .reserveCar img {
+      margin: 10px;
+      width: 250px;
+      height: 250px; }
 
 .page-content {
   padding: 50px; }

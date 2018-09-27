@@ -1,6 +1,6 @@
 body {
   padding: 0px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -8,12 +8,58 @@ a {
 }
 
 .profileCars {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   .profileCar {
+    display: flex;
+    flex-direction: row;
     margin-left: 10px;  
-    width: 30%;
+    width: 80%;
+    justify-content: space-between;
+    .car {
+      display: flex;
+      flex-direction: row;
+    }
+    .gmap {
+      margin: 10px;
+      width: 250px;
+      height: 250px;
+    }
+    img {
+      margin: 10px;
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+
+
+.reserveCars {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  .reserveCar {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;  
+    width: 80%;
+    justify-content: space-between;
+    .car {
+      display: flex;
+      flex-direction: row;
+      height: 500px;
+    }
+    #map {
+      margin: 10px;
+      width: 500px;
+      height: 500px;
+    }
+    img {
+      margin: 10px;
+      width: 250px;
+      height: 250px;
+    }
   }
 }
 
@@ -40,3 +86,4 @@ a {
       margin-top: 200px;
     }
   }
+

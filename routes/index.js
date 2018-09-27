@@ -9,11 +9,16 @@ router.get('/', (req, res, next) => {
 });
 
 router.get("/carlist/coords", (req, res, next) => {
+  const lat = req.query.lat
+  const lng = req.query.lng
+  console.log(lat, lng)
     Car.find({})
     .then( cars => {
     res.render("carlist", 
     {cars,
-    carStr: JSON.stringify(cars)})
+     carStr: JSON.stringify(cars),
+     lat, 
+     lng})
   })
 });
 
@@ -24,10 +29,10 @@ router.get("/carlist", (req, res, next) => {
   })
 });
 
-router.get("/:_id", (req, res, next) => {
+router.get("/:_id/coords", (req, res, next) => {
   Car.findById(req.params)
   .then( car=> {
-  res.render("car", car)
+  res.render("car", {car, carStr: JSON.stringify(car)})
 });
 })
 

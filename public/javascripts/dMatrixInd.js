@@ -4,16 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const latEnd = +params.get('lat')
   const lngEnd = +params.get('lng')
 
-  let i = [];
-  cars.forEach(car => {
-    console.log(car)
-    latCar = car.latitude
-    lngCar = car.longitude
-    id = car._id
-    cost = car.cost
-    i.push(car._id)
-    calculateDistance(latCar, lngCar, latEnd, lngEnd, cost, id)
-  })  
+
+  latCar = car.latitude
+  lngCar = car.longitude
+  id = car._id
+  cost = car.cost
+
+  calculateDistance(latCar, lngCar, latEnd, lngEnd, cost, id)
+
 
   function calculateDistance(latCar, lngCar, latEnd, lngEnd, cost, id) {
     var origin = {lat: latCar, lng: lngCar};

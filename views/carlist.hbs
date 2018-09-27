@@ -1,22 +1,25 @@
 <h2>Cars Available</h2>
 
-<div class="listcards">
+<div class="profileCars">
 {{#each cars}}
-  <div class="card profileCar" style="width: 18rem;">
-    <img class="card-img-top" src={{this.imgPath}} alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
-
-      <p class="card-text">Travel Distance: {{ this.km }}</p>
-      <p class="km-{{this.id}}"></p>
-      <a href="/{{this._id}}" class="btn btn-success">Check</a>    
-      <p class="latlng" hidden>lat: {{this.latitude}}, lng: {{this.longitude}}|</p>
-
-      
+  <div class="card profileCar">
+    <div class="car">
+      <img class="card-img-top" src={{this.imgPath}} alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">{{ this.carMake }} - {{ this.model }} {{this.year}} </h4>
+        <h5 class="card-text">Trip information</h5>
+        <p class="km-{{this.id}}"></p>
+        <p class="km-um-{{this.id}}"></p>
+        <p class="cost-{{this.id}}"></p>
+        <a href="/{{this._id}}/coords?lat={{../lat}}&lng={{../lng}}" class="reserve btn btn-success">View your trip</a>    
+        <p class="latlng" hidden>lat: {{this.latitude}}, lng: {{this.longitude}}|</p>
+      </div>
     </div>
+    <div class="gmap"id="map-{{counter @index}}"></div>
   </div>
 {{/each}}
 </div>
 
 <script src="/javascripts/preuba.js"></script>
+<script src="/javascripts/listMap.js"></script>
 <script> window.cars = {{{ carStr }}} </script>

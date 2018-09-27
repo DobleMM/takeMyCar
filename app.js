@@ -62,6 +62,10 @@ hbs.registerHelper('ifUndefined', (value, options) => {
   }
 });
 
+hbs.registerHelper("counter", function (index){
+  return index + 1;
+});
+
 hbs.registerHelper('compare', function(lvalue, rvalue, options) {
 
   if (arguments.length < 3)

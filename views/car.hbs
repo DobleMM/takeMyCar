@@ -1,12 +1,21 @@
-<h2> reservar {{ this.carMake }} - {{ this.model }}  </h2>
+<h2> Reserve {{ car.carMake }} - {{ car.model }}  </h2>
 
-<div class="listcards">
-  <div class="card profileCar" style="width: 18rem;">
-    <img class="card-img-top" src="{{this.imgPath}}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
-      <p class="card-text">KM: {{ this.km }} </p>
-      <a href="/private/{{this._id}}/reserve" class="btn btn-success">Reserva</a>
+<div class="reserveCars">
+  <div class="card reserveCar">
+    <div class="car">
+      <img class="card-img-top" src={{car.imgPath}} alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-text">Trip information</h5>
+        <p class="km-{{car.id}}"></p>
+        <p class="km-um-{{car.id}}"></p>
+        <p class="cost-{{car.id}}"></p>
+        <a href="/{{this._id}}/coords?lat={{../lat}}&lng={{../lng}}" class="reserve btn btn-success">Reserve your car</a>   
+      </div>
     </div>
+    <div id="map"></div>
   </div>
 </div>
+
+<script src="/javascripts/dMatrixInd.js"></script>
+<script src="/javascripts/directionMapper.js"></script>
+<script> window.car = {{{ carStr }}} </script>
