@@ -8,9 +8,9 @@
       <div class="card-body">
         <h4 class="card-title">{{ this.carMake }} - {{ this.model }} {{this.year}} </h4>
         <h5 class="card-text">Trip information</h5>
-        <p class="km-{{this.id}}"></p>
-        <p class="km-um-{{this.id}}"></p>
-        <p class="cost-{{this.id}}"></p>
+        <p>Distance: <span class="km-{{this.id}}"></span> km</p>
+        <p>€/km: <span class="km-um-{{this.id}}"></span></p>
+        <p>Cost: <span class="cost-{{this.id}}"></span> €</p>
         <a href="/{{this._id}}/coords?lat={{../lat}}&lng={{../lng}}" class="reserve btn btn-success">View your trip</a>    
         <p class="latlng" hidden>lat: {{this.latitude}}, lng: {{this.longitude}}|</p>
       </div>

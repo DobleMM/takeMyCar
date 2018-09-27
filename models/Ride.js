@@ -6,8 +6,8 @@ const rideSchema = new Schema({
 
   car: { type: Schema.Types.ObjectId, ref: 'Car' },
   rider: { type: Schema.Types.ObjectId, ref: 'User' },
-  km: String,
-  cost: String,
+  km: Number,
+  cost: Number,
 
 })
 

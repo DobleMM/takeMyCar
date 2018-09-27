@@ -41,10 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
               var duration = response.rows[0].elements[0].duration;
               console.log(response.rows[0].elements[0].distance);
               var distance_in_kilo = distance.value / 1000; // the kilom
-              var distance_in_mile = distance.value / 1609.34;
-              $(`.km-${id}`).text(`Distance: ${(distance_in_kilo).toFixed(0)} Km`);
-              $(`.km-um-${id}`).text(`€/km: ${(cost)}`);
-              $(`.cost-${id}`).text(`Cost: ${(distance_in_kilo*cost).toFixed(0)}€`);
+              $(`.km-${id}`).text((distance_in_kilo).toFixed(0));
+              $(`.km-um-${id}`).text(cost);
+              $(`.cost-${id}`).text((distance_in_kilo*cost).toFixed(0));
               var duration_text = duration.text;
               var duration_value = duration.value;
               return (distance_in_kilo, distance_in_mile, duration_text, duration_value)
