@@ -159,7 +159,8 @@ router.get("/rides", ensureLoggedIn("/auth/login"), (req, res, next) => {
     .then(function(drives)
     {
       drive = drives[0];
-      res.render("private/rides", {drive, rides, user:req.user})
+      let ridesStr = JSON.stringify(rides)
+      res.render("private/rides", {drive, rides, user:req.user,ridesStr })
     })
     })
 })
