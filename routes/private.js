@@ -112,7 +112,7 @@ router.get("/:id/delete-car", (req, res, next) => {
   })
 })
 
-router.get("/:_id/reserve", ensureLoggedIn("/auth/login"), (req, res, next) => {
+router.get("/carlist/coords", ensureLoggedIn("/auth/login"), (req, res, next) => {
   Car.findByIdAndUpdate(req.params._id, {available: false})
   .then( car => {
   res.redirect("/private/profile", car)
@@ -120,13 +120,10 @@ router.get("/:_id/reserve", ensureLoggedIn("/auth/login"), (req, res, next) => {
 })
 
 router.get("/rides", (req, res, next) => {
-  User.findById(req.user.id)
-  .then((user)=> {
-  Ride.populate('driver', user)
-  })
-  .then( () => {
-    console.log(req.Ride)
-    res.redirect("/private/profile");
+  console.log(req.car)
+ Car.findById(req.car.id)
+  .then( (car) => {
+    res.redirect("/private/profile", req.user, car);
 });
 })
 
