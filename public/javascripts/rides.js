@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('reserve').onclick = function(){
   let id = car._id;
-  let km = document.getElementById("km").textContent;
-  let cost = document.getElementById("cost").textContent;
+  let km = parseInt(document.getElementById("km").textContent);
+  let cost = parseInt(document.getElementById("cost").textContent);
   
   let newRide = {
     km : km,

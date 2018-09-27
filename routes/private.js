@@ -136,15 +136,7 @@ router.post("/reserve/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
  Ride.create(ride).then( (ride) =>{
   res.redirect("/private/profile")
  })
-})
-
-router.get("/rides", ensureLoggedIn("/auth/login"), (req, res, next) => {
-  res.render("private/rides") 
 });
-
-
-
-
 
 
 router.get("/rides", ensureLoggedIn("/auth/login"), (req, res, next) => {
@@ -156,7 +148,7 @@ router.get("/rides", ensureLoggedIn("/auth/login"), (req, res, next) => {
     Car.find({owner: id})
   ])
   .then( ([rides, cars]) => {
-    // console.log(car)
+
     carIds = cars.map(e => {
       return e._id;
     })
@@ -170,6 +162,6 @@ router.get("/rides", ensureLoggedIn("/auth/login"), (req, res, next) => {
       res.render("private/rides", {drive, rides})
     })
     })
-});
+})
 
 module.exports = router;

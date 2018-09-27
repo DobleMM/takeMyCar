@@ -6,9 +6,9 @@
       <img class="card-img-top" src={{car.imgPath}} alt="Card image cap">
       <div class="card-body">
         <h5 class="card-text">Trip information</h5>
-        <p id="km" class="km-{{car.id}}"></p>
-        <p class="km-um-{{car.id}}"></p>
-        <p id="cost" class="cost-{{car.id}}"></p>
+        <p>Distance: <span id="km" class="km-{{car.id}}"></span> km</p>
+        <p>€/km: <span class="km-um-{{car.id}}"></span></p>
+        <p>Cost: <span id="cost" class="cost-{{car.id}}"></span> €</p>
         <button type="button" {{!-- href="../private/reserve/{{car.id}}" --}} id="reserve" class="reserve btn btn-success">Reserve your car</button>   
       </div>
     </div>
@@ -18,7 +18,6 @@
 
 <script src="/javascripts/dMatrixInd.js"></script>
 <script src="/javascripts/directionMapper.js"></script>
-
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/javascripts/rides.js"></script>
 <script> window.car = {{{ carStr }}} </script>
