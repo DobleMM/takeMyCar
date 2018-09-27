@@ -140,6 +140,13 @@ router.post("/reserve/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
  })
 })
 
+router.get("/rides", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  id = req.user
+  Ride.findById(id)
+  .then( rides => {
+  res.render("private/rides", {rides})
+  });
+})
 
 
 router.get("/:id/deactivate", (req, res, next) => {
