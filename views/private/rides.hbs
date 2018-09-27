@@ -1,12 +1,24 @@
 
-
+Rider
 {{#each rides}}
   <div class="card profileCar" style="width: 18rem;">
     <div class="card-img-top" style="height:100px" alt="Card image cap"></div>
     <div class="card-body">
-      <h5 class="card-title">{{ this._id }} </h5>
+      <h5 class="card-title">{{ this.cost }} </h5>
       <p class="card-text"></p>
     </div>
   </div>
+{{/each}}
 
+
+Drives 
+
+{{#each drive}}
+  <div class="card profileCar" style="width: 18rem;">
+    <div class="card-img-top" style="height:100px" alt="Card image cap"></div>
+    <div class="card-body">
+      <h5 class="card-title">{{ this.cost }} </h5>
+      <p class="card-text"></p>
+    </div>
+  </div>
 {{/each}}

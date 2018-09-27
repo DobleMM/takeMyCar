@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const rideSchema = new Schema({
 
   car: { type: Schema.Types.ObjectId, ref: 'Car' },
-  driver: { type: Schema.Types.ObjectId, ref: 'User' },
+  rider: { type: Schema.Types.ObjectId, ref: 'User' },
   km: String,
   cost: String,
 

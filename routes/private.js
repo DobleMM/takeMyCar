@@ -130,38 +130,43 @@ router.post("/reserve/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
   km: req.body.km,
   cost: req.body.cost,
   car:req.params.id,
-  driver: req.user.id,
+  rider: req.user.id,
   }
 
  Ride.create(ride).then( (ride) =>{
    res.send(ride)
-
-
  })
 })
 
-router.get("/rides", ensureLoggedIn("/auth/login"), (req, res, next) => {
-  id = req.user
-  Ride.findById(id)
-  .then( rides => {
-  res.render("private/rides", {rides})
-  });
+router.get("/reserve/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
+ 
 })
 
 
-router.get("/:id/deactivate", (req, res, next) => {
 
+router.get("/rides", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  id = req.user._id
+  console.log(id)
 
+  Promise.all([
+    Ride.find({rider: id}),
+    Car.find({owner: id})
+  ])
+  .then( ([rides, cars]) => {
+    // console.log(car)
+    carIds = cars.map(e => {
+      return e._id;
+    })
+
+    Promise.all(carIds.map(e => {
+      return Ride.find({car: e})
+    }))
+    .then(function(drives)
+    {
+      drive = drives[0];
+      res.render("private/rides", {drive, rides})
+    })
+    })
 });
-
-router.get("/:id/deactivate", (req, res, next) => {
-
-
-});
-
-  
-
-
-
 
 module.exports = router;
