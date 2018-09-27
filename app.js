@@ -11,6 +11,7 @@ const path = require('path');
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
+const moment = require('moment');
 
 
 mongoose
@@ -97,6 +98,12 @@ hbs.registerHelper('compare', function(lvalue, rvalue, options) {
 
 });
   
+
+
+hbs.registerHelper('formatTime', function (date, format) {
+  var mmnt = moment(date);
+  return mmnt.format(format);
+});
 
 // default value for title local
 app.locals.title = 'Take My Car';
