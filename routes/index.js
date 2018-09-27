@@ -29,12 +29,13 @@ router.get("/carlist", (req, res, next) => {
   })
 });
 
-router.get("/:_id/coords", (req, res, next) => {
+router.get("/:_id/coords", ensureLoggedIn("/auth/login"), (req, res, next) => {
   Car.findById(req.params)
   .then( car=> {
   res.render("car", {car, carStr: JSON.stringify(car)})
 });
 })
+
 
 
 

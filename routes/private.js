@@ -1,5 +1,6 @@
 const express = require("express");
 const passport = require('passport');
+const axios = require('axios');
 const router = express.Router();
 const User = require("../models/User");
 const Car = require("../models/Car");
@@ -64,7 +65,6 @@ router.get("/ownerlist", ensureLoggedIn(), (req, res, next) => {
 })
 
 router.post("/ownerlist", ensureLoggedIn(),  uploadCloud.single('photo'), (req, res, next) => {
-  console.log(req.file)
   const owner = req.session.passport.user;
   const year = req.body.year;
   const carMake = req.body.carMake;
@@ -119,12 +119,22 @@ router.get("/carlist/coords", ensureLoggedIn("/auth/login"), (req, res, next) =>
   });
 })
 
-router.get("/rides", (req, res, next) => {
-  console.log(req.car)
- Car.findById(req.car.id)
-  .then( (car) => {
-    res.redirect("/private/profile", req.user, car);
-});
+
+
+router.post("/reserve/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
+  console.log('entra')
+  ride = {
+  km: req.body.km,
+  cost: req.body.cost,
+  car:req.params.id,
+  driver: req.user.id,
+  }
+
+ Ride.create(ride).then( (ride) =>{
+   res.send(ride)
+
+
+ })
 })
 
 

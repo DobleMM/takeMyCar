@@ -6,10 +6,8 @@ const rideSchema = new Schema({
 
   car: { type: Schema.Types.ObjectId, ref: 'Car' },
   driver: { type: Schema.Types.ObjectId, ref: 'User' },
-  pickupTime: Date,
-  finishTime: Date,
-  kmAtBeggining: Number,
-  kmAtFinish: Number,
+  km: String,
+  cost: String,
 
 })
 
