@@ -7,8 +7,7 @@ document.getElementById('reserve').onclick = function(){
   let id = car._id;
   let km = document.getElementById("km").textContent;
   let cost = document.getElementById("cost").textContent;
-  console.log(km, cost)
-
+  
   let newRide = {
     km : km,
     cost : cost
