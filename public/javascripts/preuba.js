@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let i = [];
   cars.forEach(car => {
-    console.log(car)
     latCar = car.latitude
     lngCar = car.longitude
     id = car._id

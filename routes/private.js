@@ -38,12 +38,13 @@ router.post("/:id/editcar", (req, res, next) => {
   const carMake = req.body.carMake;
   const model = req.body.model;
   const km = req.body.km;
+  const cost = req.body.cost;
   const latitude = req.body.latitude;
   const longitude = req.body.longitude;
   let available;
   (req.body.available == 'on') ? available = true : available = false;
 
-  Car.findByIdAndUpdate(id, {year, carMake, model, km, latitude, longitude, available})
+  Car.findByIdAndUpdate(id, {year, carMake, model, cost, km, latitude, longitude, available})
   .then(() => {
     res.redirect("/private/ownerlist")
   })
@@ -70,6 +71,7 @@ router.post("/ownerlist", ensureLoggedIn(),  uploadCloud.single('photo'), (req, 
   const carMake = req.body.carMake;
   const model = req.body.model;
   const km = req.body.km;
+  const km = req.body.cost;
   const imgPath = req.file.url;
   const latitude = req.body.latitude;
   const longitude = req.body.longitude;
@@ -82,6 +84,7 @@ router.post("/ownerlist", ensureLoggedIn(),  uploadCloud.single('photo'), (req, 
     carMake,
     model,
     km,
+    cost,
     available,
     imgPath, 
     latitude,
