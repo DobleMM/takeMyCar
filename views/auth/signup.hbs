@@ -1,5 +1,10 @@
-<h2>Signup</h2>
+<div class="login-all">
+<div class="card w-50 login">
+  <div class="card-header">
 
+<h2>Signup</h2>
+</div>
+<div class="card-body">
 <form action="/auth/signup" method="POST" enctype="multipart/form-data" id="form-container">
   <label for="username">Username</label>
   <input id="username" type="text" name="username" placeholder="JonSnow">
@@ -14,8 +19,8 @@
 
   <label for="password">Password</label>
   <input id="password" type="password" name="password" placeholder="Your password">
-  <h2>Foto de perfil</h2>
-  <label>Foto de Perfil</label>
+  <h3>Upload picture</h3>
+  {{!-- <label>Foto de Perfil</label> --}}
   <input type="file" name="photo">
 
   <br>
@@ -25,10 +30,13 @@
 
   <br><br>
 
-  <button value="SAVE">Create account</button>
+  <button class="btn btn-info" value="SAVE">Create account</button>
 
   <p class="account-message">
     Do you already have an account?
     <a href="/auth/login">Login</a>
   </p>
 </form>
+</div>
+</div>
+</div>
