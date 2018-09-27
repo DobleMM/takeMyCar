@@ -71,7 +71,7 @@ router.post("/ownerlist", ensureLoggedIn(),  uploadCloud.single('photo'), (req, 
   const carMake = req.body.carMake;
   const model = req.body.model;
   const km = req.body.km;
-  const km = req.body.cost;
+  const cost = req.body.cost;
   const imgPath = req.file.url;
   const latitude = req.body.latitude;
   const longitude = req.body.longitude;
