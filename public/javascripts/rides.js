@@ -12,10 +12,10 @@ document.getElementById('reserve').onclick = function(){
     km : km,
     cost : cost
   }
-  let url = 'http://' + window.location.host + `/private/reserve/${id}`
+  let url = 'https://' + window.location.host + `/private/reserve/${id}`
   axios.post(url, 
     newRide
-  ).then(() => window.location.href = 'http://' + window.location.host + `/private/profile` )
+  ).then(() => window.location.href = 'https://' + window.location.host + `/private/profile` )
     
 }
 }, false)

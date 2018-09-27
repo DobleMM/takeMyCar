@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
               $(`.cost-${id}`).text((distance_in_kilo*cost).toFixed(0));
               var duration_text = duration.text;
               var duration_value = duration.value;
-              return (distance_in_kilo, distance_in_mile, duration_text, duration_value)
+              return (distance_in_kilo, duration_text, duration_value)
           }
         }
       }
