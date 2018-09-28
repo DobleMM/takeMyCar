@@ -126,16 +126,19 @@ router.get("/carlist/coords", ensureLoggedIn("/auth/login"), (req, res, next) =>
 
 router.post("/reserve/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
   console.log(req.body)
+  carId = req.params.id
   ride = {
   km: req.body.km,
   cost: req.body.cost,
   car:req.params.id,
   rider: req.user.id,
   }
-
- Ride.create(ride).then( (ride) =>{
-  res.redirect("/private/profile")
- })
+  Car.findByIdAndUpdate(req.params._id, {available: false})
+  .then( () => {
+    Ride.create(ride).then( (ride) =>{
+      res.redirect("/private/profile")
+     })
+  }) 
 });
 
 
