@@ -119,7 +119,6 @@ a {
     .login-all .login .card-header {
       opacity: 0.6; }
 
-<<<<<<< HEAD
 .rider {
   background-color: rgba(253, 254, 254, 0.664);
   border-radius: 14px;
@@ -135,7 +134,7 @@ a {
     margin-right: 15px; }
   .rider .canvas-ride {
     width: 800px; }
-=======
+
 .profile {
   height: 750px; }
   .profile .profile-jumbo {
@@ -166,6 +165,5 @@ a {
   padding: 5px;
   color: #1A5276;
   margin: 30px; }
->>>>>>> 189764bc2257cd49c523972ea148ce9746af5da6
 
 /*# sourceMappingURL=style.css.map */
