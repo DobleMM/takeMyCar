@@ -133,7 +133,7 @@ router.post("/reserve/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
   car:req.params.id,
   rider: req.user.id,
   }
-  Car.findByIdAndUpdate(req.params._id, {available: false})
+  Car.findByIdAndUpdate(carId, {available: false})
   .then( () => {
     Ride.create(ride).then( (ride) =>{
       res.redirect("/private/profile")
