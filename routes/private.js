@@ -160,7 +160,8 @@ router.get("/rides", ensureLoggedIn("/auth/login"), (req, res, next) => {
     {
       drive = drives[0];
       let ridesStr = JSON.stringify(rides)
-      res.render("private/rides", {drive, rides, user:req.user,ridesStr })
+      let drivesStr = JSON.stringify(drive)
+      res.render("private/rides", {drive, rides, user:req.user,ridesStr, drivesStr })
     })
     })
 })

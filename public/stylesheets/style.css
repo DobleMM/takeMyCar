@@ -25,14 +25,18 @@ a {
   flex-wrap: wrap; }
   .profileCars h2 {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 15px; }
+    margin-left: 550px;
+    padding: 15px;
+    font-weight: bold;
+    color: #1A5276; }
   .profileCars .profileCar {
     display: flex;
     flex-direction: row;
     margin-left: 100px;
     width: 80%;
     margin-bottom: 25px;
-    justify-content: space-between; }
+    justify-content: space-between;
+    background-color: rgba(253, 254, 254, 0.8); }
     .profileCars .profileCar .car {
       display: flex;
       flex-direction: row;
@@ -50,12 +54,21 @@ a {
   width: 100%;
   display: flex;
   flex-wrap: wrap; }
+  .reserveCars h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 500px;
+    padding: 15px;
+    font-weight: bold;
+    color: #1A5276; }
   .reserveCars .reserveCar {
     display: flex;
     flex-direction: row;
     margin-left: 10px;
     width: 80%;
-    justify-content: space-between; }
+    justify-content: space-between;
+    margin-left: 120px;
+    margin-bottom: 60px;
+    background-color: rgba(253, 254, 254, 0.8); }
     .reserveCars .reserveCar .car {
       display: flex;
       flex-direction: row;
@@ -73,6 +86,7 @@ a {
   padding: 50px; }
 
 .index-content {
+  color: #1A5276;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,7 +102,7 @@ a {
     align-items: center; }
   .index-content .search-bar {
     width: 80%;
-    margin: 200px; }
+    margin: 100px; }
 
 .login-all {
   display: flex;
@@ -96,8 +110,25 @@ a {
   align-content: center;
   margin-left: 550px; }
   .login-all .login {
-    align-self: center; }
+    align-self: center;
+    background-color: rgba(253, 254, 254, 0.8); }
     .login-all .login .card-header {
       opacity: 0.6; }
+
+.rider {
+  background-color: rgba(253, 254, 254, 0.664);
+  border-radius: 14px;
+  text-align: center;
+  padding: 20px;
+  color: #1A5276;
+  margin: 30px; }
+  .rider h3 {
+    font-weight: bold; }
+  .rider .data {
+    text-align: center;
+    padding-top: 60px;
+    margin-right: 15px; }
+  .rider .canvas-ride {
+    width: 800px; }
 
 /*# sourceMappingURL=style.css.map */
