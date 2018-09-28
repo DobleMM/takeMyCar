@@ -1,46 +1,47 @@
-
+<div class="trip">
 <div class="container rider">
-   <h3>DRIVES - Your income</h3> 
-   <div class="canvas-driver">
-     <div class="row">
-    <div class="canvas-ride">
-    <div class="col-sm">
-  <canvas id="driver"></canvas>
-</div>
-</div>
-<div class="col-sm data">
- 
-  <ol>
-    {{#each drive}}
-    <li>
-      <h5 class="card-title">{{ this.cost }} € - {{formatTime this.createdAt "MM-DD-YYYY, h:mm"}} </h5>
-    </li>
-    {{/each}}
-  </ol>
-</div>
-</div>
-</div>
+  <h3>DRIVES - Your income</h3>
+  <div class="canvas-driver">
+    <div class="row">
+      <div class="canvas-ride">
+        <div class="col-sm">
+          <canvas id="driver"></canvas>
+        </div>
+      </div>
+      <div class="col-sm data">
+
+        <ol>
+          {{#each drive}}
+          <li>
+            <h5 class="card-title">{{ this.cost }} € - {{formatTime this.createdAt "MM-DD-YYYY, h:mm"}} </h5>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container rider">
   <h3>RIDES</h3>
   <div class="row">
-    
+
     <div class="col-sm">
 
-  
-  <div class="canvas-ride">
-  <canvas id="rider"></canvas>
-</div>
-</div>
-  <div class="col-sm data">
-  <ol>
-    {{#each rides}}
-    <li>
-      <h5 class="card-title">{{ this.cost }} € - {{formatTime this.createdAt "MM-DD-YYYY, h:mm"}} </h5>
-    </li>
-    {{/each}}
-  </ol>
+
+      <div class="canvas-ride">
+        <canvas id="rider"></canvas>
+      </div>
+    </div>
+    <div class="col-sm data">
+      <ol>
+        {{#each rides}}
+        <li>
+          <h5 class="card-title">{{ this.cost }} € - {{formatTime this.createdAt "MM-DD-YYYY, h:mm"}} </h5>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
   </div>
 </div>
 </div>
@@ -50,7 +51,7 @@
 <script> window.rides = {{{ ridesStr }}} </script>
 <script> window.drives = {{{ drivesStr }}} </script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-{{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script> --}}
+{{!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 <script src="/javascripts/graph.js" charset="utf-8"></script>
-

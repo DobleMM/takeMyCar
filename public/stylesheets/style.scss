@@ -1,8 +1,15 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
 body {
   background-image: url("https://webgradients.com/public/webgradients_png/068%20Heaven%20Peach.png");
   padding: 0px;
   background-size: cover;
   font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-bottom: 70px;
 }
 
 a {
@@ -31,12 +38,16 @@ a {
 }
 
 
+
 .footer-copyright{
+  height: 70px;
+  position: absolute;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-
+  clear: both;
+  float:left;
   background-color: black;
   color: whitesmoke;
 
@@ -46,6 +57,8 @@ a {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  margin-left: 10%;
+  margin-bottom: 100px;
   h2 {
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 550px;
@@ -201,7 +214,8 @@ a {
 
 .addedit-car {
   width: 80%;
-  margin: 3% 10% 3% 10%;
+  margin: 3% 10% 3% 200px;
+  padding-bottom: 100px;
   .btn {
     margin-top: 15px;
   }
@@ -216,4 +230,8 @@ a {
     padding: 5px;
     color: #1A5276;
     margin: 30px;
+  }
+
+  .trips {
+    padding-bottom: 100px;
   }
