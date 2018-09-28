@@ -1,14 +1,19 @@
 {{!-- esto se queda, hay que cambiar las rutas--}}
 {{!-- esto se queda, hay que cambiar las rutas--}}
-<div>
-<img class="rounded-circle" src={{prof.imgPath}}>
-<h2>{{prof.username}}</h2>
-</div>
 
-<br>
-<a href="/private/addcar">Add a new Car</a>
-<br>
-<a href="/private/rides">Rides</a>
-<p>{{this.rides}}</p>
-<br>
-<a href="/private/ownerlist">My Cars</a>
+<div class="profile">
+<div class="jumbotron profile-jumbo">
+  <div>
+    <img class="rounded-circle profile-pic" src={{prof.imgPath}}>
+  </div>
+  <div>
+    <h1 class="display-4">Hello, {{prof.username}}!</h1>
+    <h3>Your dashboard</h3>
+    <ul>
+      <li><a href="/private/addcar">Add a new Car</a></li>
+      <li><a href="/private/rides">Rides</a></li>
+      <li><a href="/private/ownerlist">My Cars</a></li>
+    </ul>
+  </div>
+</div>
+</div>

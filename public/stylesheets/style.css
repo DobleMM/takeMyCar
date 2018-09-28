@@ -12,6 +12,10 @@ a {
   .navbar a {
     color: antiquewhite;
     padding-right: 15px; }
+  .navbar .inset {
+    width: 50px;
+    height: 50px;
+    object-fit: cover; }
 
 .footer-copyright {
   width: 100%;
@@ -29,7 +33,7 @@ a {
   .profileCars .profileCar {
     display: flex;
     flex-direction: row;
-    margin-left: 100px;
+    margin-left: 10px;
     width: 80%;
     margin-bottom: 25px;
     justify-content: space-between; }
@@ -42,9 +46,9 @@ a {
       width: 250px;
       height: 250px; }
     .profileCars .profileCar img {
-      margin: 10px;
       width: 250px;
-      height: 250px; }
+      height: 250px;
+      object-fit: cover; }
 
 .reserveCars {
   width: 100%;
@@ -99,5 +103,36 @@ a {
     align-self: center; }
     .login-all .login .card-header {
       opacity: 0.6; }
+
+.profile {
+  height: 750px; }
+  .profile .profile-jumbo {
+    width: 80%;
+    margin-left: 9%;
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap; }
+    .profile .profile-jumbo .profile-pic {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      padding: 10px; }
+
+.addedit-car {
+  width: 80%;
+  margin: 3% 10% 3% 10%; }
+  .addedit-car .btn {
+    margin-top: 15px; }
+
+.addnew {
+  margin: 30px 0 0 30px; }
+
+.container-actdeact {
+  background-color: rgba(253, 254, 254, 0.664);
+  border-radius: 14px;
+  text-align: center;
+  padding: 5px;
+  color: #1A5276;
+  margin: 30px; }
 
 /*# sourceMappingURL=style.css.map */

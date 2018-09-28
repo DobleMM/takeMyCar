@@ -1,47 +1,41 @@
-<h2>COCHES</h2>
 
-<a href="/private/addcar" class="btn btn-primary">Add a new car</a>
-
-
-
-<h3>Active</h3>
-<div class="profileCars">
-{{#each cars}}
-{{#compare this.available true operator="=="}}
-  <div class="card profileCar" style="width: 18rem;">
-    <div class="card-img-top" style="height:100px" alt="Card image cap"></div>
-    <div class="card-body">
-       <img src={{this.imgPath}} alt="car">
-      <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
-      <p class="card-text">KM: {{ this.km }} </p>
-      <a href="{{this._id}}/activate-car" class="btn btn-danger">Deactivate</a>
-      <a href="{{this._id}}/editcar" class="btn btn-primary">Edit</a>
-      <a href="{{this._id}}/delete-car" class="btn btn-danger">Delete</a>
+<a href="/private/addcar" class="addnew btn btn-primary">Add a new car</a>
+<div class="container-actdeact">
+  <h3>Your active cars</h3>
+  <div class="profileCars">
+    {{#each cars}}
+    {{#compare this.available true operator="=="}}
+    <div class="card profileCar" style="width: 18rem;">
+      <div class="card-img-top" style="height:100px" alt="Card image cap"></div>
+      <div class="card-body">
+        <img src={{this.imgPath}} alt="car">
+        <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
+        <p class="card-text">KM: {{ this.km }} </p>
+        <a href="{{this._id}}/editcar" class="btn btn-primary">Edit</a>
+        <a href="{{this._id}}/delete-car" class="btn btn-danger">Delete</a>
+      </div>
     </div>
+    {{/compare}}
+    {{/each}}
   </div>
-{{/compare}}
-{{/each}}
 </div>
 
-
-<h3>Deactivate</h3>
-<div class="profileCars">
-{{#each cars}}
-{{#compare this.available true operator="!="}}
-  <div class="card profileCar" style="width: 18rem;">
-    <div class="card-img-top" style="height:100px" alt="Card image cap"></div>
-    <div class="card-body">
-       <img src={{this.imgPath}} alt="car">
-      <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
-      <p class="card-text">KM: {{ this.km }} </p>
-      <a href="{{this._id}}/activate-car" class="btn btn-success">Deactivate</a>
-      <a href="{{this._id}}/editcar" class="btn btn-primary">Edit</a>
-      <a href="{{this._id}}/delete-car" class="btn btn-danger">Delete</a>
+<div class="container-actdeact">
+  <h3>Inactive Cars</h3>
+  <div class="profileCars">
+    {{#each cars}}
+    {{#compare this.available true operator="!="}}
+    <div class="card profileCar" style="width: 18rem;">
+      <div class="card-img-top" style="height:100px" alt="Card image cap"></div>
+      <div class="card-body">
+        <img src={{this.imgPath}} alt="car">
+        <h5 class="card-title">{{ this.carMake }} - {{ this.model }} </h5>
+        <p class="card-text">KM: {{ this.km }} </p>
+        <a href="{{this._id}}/editcar" class="btn btn-primary">Edit</a>
+        <a href="{{this._id}}/delete-car" class="btn btn-danger">Delete</a>
+      </div>
     </div>
+    {{/compare}}
+    {{/each}}
   </div>
-{{/compare}}
-{{/each}}
 </div>
-
-
-
