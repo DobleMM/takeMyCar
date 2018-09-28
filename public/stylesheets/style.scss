@@ -16,18 +16,30 @@ a {
     color: antiquewhite;
     padding-right: 15px;
   }
+  .inset-2 {
+    height: 40px;
+  }
+  .navbar-brand {
+    margin-left: 20px;
+  }
+
   .inset {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
   }
 }
 
+
 .footer-copyright{
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
+
   background-color: black;
   color: whitesmoke;
-  bottom: 0;
+
 }
 
 .profileCars {
@@ -116,10 +128,12 @@ a {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 700px;
     object-fit: contain;
     background-image: url("https://avatars.mds.yandex.net/get-pdb/236760/23cc6b20-88ec-4407-8525-ecaab35989b7/orig");
     background-size: cover;
+    position: absolute;
+    bottom: 0;
+    top: 55px;
     .title{
       padding: 20px;
       display: flex;
